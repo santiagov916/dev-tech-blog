@@ -5,7 +5,7 @@ const hbs = exphbs.create({});
 
 const app = express();
 
-const PORT = process.env.PORT || 8801;
+const PORT = process.env.PORT || 3306;
 
 const sequelize = require('./config/connection');
 
@@ -19,5 +19,5 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(require('./controllers/'));
 
 sequelize.sync({ force: false }).then(() => {
-    app.listen(PORT, () => console.log(`PORT ${PORT}` + 'now open.'))
+    app.listen(PORT, () => console.log(`PORT ${PORT} ` + 'now open.'))
 });
