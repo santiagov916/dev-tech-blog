@@ -5,10 +5,13 @@ class Comment extends Model {}
 
 Comment.init({
     id: {
-
+        type: Datatypes.INTEGER,
+        allowNull: false,
+        primaryKey: true,
+        autoIncrement: true
     },
     comment_text: {
-
+        
     },
     user_id: {
 
