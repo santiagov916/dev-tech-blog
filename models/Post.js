@@ -11,13 +11,22 @@ Post.init({
         autoIncrement: true
     },
     title: {
-
+        type: Datatypes.STRING,
+        allowNull: false
     },
     post_url: {
-
+        type: Datatypes.STRING,
+        allowNull: false, 
+        validate: {
+            isUrl: true
+        }
     },
     user_id: {
-
+        type: Datatypes.INTEGER,
+        references: {
+            model: 'user',
+            key: 'id'
+        }
     }
 },
 {
