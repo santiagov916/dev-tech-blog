@@ -1,5 +1,3 @@
-const { Comment, Post, User } = require('../models');
-
 const userSeed = require('./user-seeds');
 const postSeed = require('./post-seeds');
 const commentSeed = require('./comment-seeds');

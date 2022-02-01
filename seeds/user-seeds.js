@@ -1,5 +1,5 @@
 const { User } = require('../models');
-const { bulkCreate } = require('../models/User');
+const sequelize = require('../config/connection');
 
 const userData = [ 
     {
@@ -9,16 +9,16 @@ const userData = [
     },
     {
         username: 'secondone',
-        email: 'secondt@aol.com',
+        email: 'second@aol.com',
         password: '2345'
     },
     {
         username: 'thirdone',
-        email: 'thirdt@aol.com',
+        email: 'third@aol.com',
         password: '3456'
     },
     {
-        username: 'fourthhone',
+        username: 'fourthone',
         email: 'fourth@aol.com',
         password: '4567'
     },
@@ -28,7 +28,7 @@ const userData = [
         password: '5678'
     },
     {
-        username: 'sixthhone',
+        username: 'sixtheone',
         email: 'sixth@aol.com',
         password: '6789'
     },

@@ -13,15 +13,16 @@ class User extends Model {
 
 // column setups for User model
 User.init({
-    id: {
-        type: Datatypes.INTEGER,
+    user_id: {
+        type: Datatypes.STRING,
         allowNull: false,
         primaryKey: true,
-        autoIncrement: true
+        autoIncrement: true,
     },
     username: {
         type: Datatypes.STRING,
-        allowNull: true
+        allowNull: false,
+        unique: true,
     },
     email: {
         type: Datatypes.STRING,
@@ -35,9 +36,9 @@ User.init({
         type: Datatypes.STRING,
         allowNull: false,
         validate: {
-            len: [4]
-        }
-    }
+            len: [4],
+        },
+    },
 },
 {
     hooks : {
@@ -45,11 +46,6 @@ User.init({
         async beforeCreate(newUserData) {
             newUserData.password = await bcrypt.hash(newUserData.password, 10);
             return newUserData;
-        },
-
-        async beforeUpdate(updateUserData) {
-            updateUserData.password = await bcrypt.hash(updateUserData.password, 10);
-            return updateUserData;
         },
     },
     sequelize,

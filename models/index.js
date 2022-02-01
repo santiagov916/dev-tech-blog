@@ -1,10 +1,12 @@
 const User = require('./User');
 const Comment = require('./Comment');
 const Post = require('./Post');
+const { Model, Dataypes } = require('sequelize');
+const sequelize = require('../config/connection');
 
 // User associations
 User.hasMany(Post, {
-    foreignKey: 'user_id'
+    foreignKey: 'user_id',
 });
 
 User.hasMany(Comment, {
@@ -18,7 +20,7 @@ Post.belongsTo(User, {
     onDelete: 'SET NULL'
 });
 
-Post.hasMany(Comment.hasMany, {
+Post.hasMany(Comment, {
     foreignKey: post_id
 });
 
