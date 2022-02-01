@@ -17,7 +17,7 @@ const postData = [
         user_id: 1,
     },
     {
-        title: 'Is the pastor sticking to the bible?',
+        title: 'Is the preacher sticking to the bible?',
         post_url: 'urlforpastorpath',
         user_id: 1,
     },
