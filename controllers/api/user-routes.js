@@ -6,7 +6,7 @@ console.log('user-routes open');
 
 router.get('/', (req, res) => {
     User.findAll({
-        attributes: { exclude: ['password'] },
+        // attributes: { exclude: ['password'] },
     })
     .then(userData => res.json(userData))
     .catch((err) => {
