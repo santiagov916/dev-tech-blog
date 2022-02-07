@@ -42,7 +42,7 @@ const { Post, Comment, User } = require('../models');
         });
  });
 
- router.get('login', (req, res) => {
+ router.get('/login', (req, res) => {
     if (req.session.loggedIn) {
         res.redirect('/');
         return;
@@ -51,7 +51,7 @@ const { Post, Comment, User } = require('../models');
     res.render('login');
  });
 
- router.get('signup', (req, res) => {
+ router.get('/signup', (req, res) => {
     if (req.session.loggedIn) {
         res.redirect('/');
         return;
