@@ -26,7 +26,7 @@
 
   ## Usage
 
-  will deploy to heroku soon!
+  https://we-dev-bloggin.herokuapp.com/
 
   ## Installation 
 
