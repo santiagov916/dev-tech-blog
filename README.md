@@ -38,7 +38,7 @@
 
   ### People: myself, tutors from UCDAVIS and friends
   ### GitHub Username: santiagov916
-  ### GitHub Link to project: https://github.com/santiagov916/dev-tech-blog/tree/develop
+  ### GitHub Link to project: https://github.com/santiagov916/dev-tech-blog
 
   ## Questions?
 
