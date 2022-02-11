@@ -2,8 +2,6 @@ const router = require("express").Router();
 const { Post, Comment, User } = require("../../models/");
 const withAuth = require("../../utils/auth");
 
-console.log('post-routes open');
-
 router.post("/", withAuth, (req, res) => {
     const body = req.body;
     console.log(req.session.userId);
@@ -52,5 +50,4 @@ router.post("/", withAuth, (req, res) => {
       });
   });
   
-
 module.exports = router;

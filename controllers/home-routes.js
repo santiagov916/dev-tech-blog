@@ -1,10 +1,8 @@
 const router = require('express').Router();
-const sequelize = require('../config/connection');
 const { Post, Comment, User } = require('../models');
 
- console.log('home-routes open');
-
  router.get('/', (req, res) => {
+    console.log(JSON.stringify(req.session))
     Post.findAll({
         include: [User],
     })
@@ -43,6 +41,7 @@ const { Post, Comment, User } = require('../models');
  });
 
  router.get('/login', (req, res) => {
+     
     if (req.session.loggedIn) {
         res.redirect('/');
         return;

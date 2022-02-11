@@ -5,11 +5,12 @@ const withAuth = require('../utils/auth');
 router.get('/', withAuth, (req, res) => {
     Post.findAll({
         where: {
-            id: req.session.id
+            user_id: req.session.userId
         }
     })
     .then(postData => {
         const posts = postData.map((post) => post.get({ plain: true }));
+        console.log("!!!!!!!!!!!!!!!!!!!"+ postData)
         
         res.render('all-posts-admin', {
             layout: 'dashboard',
@@ -34,7 +35,7 @@ router.get('/edit/:id', withAuth, (req, res) => {
         if (postData) {
             const post = postData.get({ plain: true });
 
-            res.render('edit-post', {
+            res.render('edit-posts', {
                 layout: 'dashboard',
                 post
             });

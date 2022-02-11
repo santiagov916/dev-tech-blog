@@ -1,8 +1,6 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
-console.log('user-routes open');
-
 router.post('/', (req, res) => {
     User.create({
       username: req.body.username,
@@ -29,17 +27,19 @@ router.post('/', (req, res) => {
         username: req.body.username
       }
     }).then(dbUserData => {
+      
       if (!dbUserData) {
         res.status(400).json({ message: 'No user account found!' });
         return;
       }
-  
-      const validPassword = dbUserData.checkPassword(req.params.password);
-  
+      
+      const validPassword = dbUserData.checkPassword(req.body.password);
+      
       if (!validPassword) {
         res.status(400).json({ message: 'Incorrect password!' });
         return;
       }
+      console.log(validPassword + "43")
   
       req.session.save(() => {
         req.session.userId = dbUserData.id;
@@ -51,7 +51,6 @@ router.post('/', (req, res) => {
     });
   });
   
-  // log out route
   router.post('/logout', (req, res) => {
     if (req.session.loggedIn) {
       req.session.destroy(() => {
